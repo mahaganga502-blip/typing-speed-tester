@@ -1,0 +1,42 @@
+# Typing Speed Tester
+import time
+print("===== TYPING SPEED TESTER =====")
+text = "Python is a simple and powerful programming language."
+print("\nType the following sentence:")
+print(text)
+input("\nPress Enter when you are ready...")
+start_time = time.time()
+typed_text = input("\nStart typing: ")
+end_time = time.time()
+time_taken = end_time - start_time
+words = len(typed_text.split())
+if time_taken > 0:
+    speed = (words / time_taken) * 60
+else:
+    speed = 0
+# Calculate accuracy
+correct = 0
+for i in range(min(len(text), len(typed_text))):
+    if text[i] == typed_text[i]:
+        correct += 1
+if len(text) > 0:
+    accuracy = (correct / len(text)) * 100
+else:
+    accuracy = 0
+print("\n===== RESULT =====")
+print("Time Taken :", round(time_taken, 2), "seconds")
+print("Words      :", words)
+print("Speed      :", round(speed, 2), "WPM")
+print("Accuracy   :", round(accuracy, 2), "%")
+
+OUTPUT:
+===== TYPING SPEED TESTER =====
+Type the following sentence:
+Python is a simple and powerful programming language.
+Press Enter when you are ready...
+Start typing: Python is a simple and powerful programming language.
+===== RESULT =====
+Time Taken : 16.07 seconds
+Words      : 8
+Speed      : 29.87 WPM
+Accuracy   : 100.0 %
